@@ -2,67 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-/* AI Assistant Design System - Modern, Futuristic Theme */
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
 
 @layer base {
   :root {
-    /* Base colors */
-    --background: 220 30% 98%;
-    --foreground: 225 25% 15%;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
 
-    /* Card system */
     --card: 0 0% 100%;
-    --card-foreground: 225 25% 15%;
+    --card-foreground: 222.2 84% 4.9%;
 
-    /* Interactive elements */
     --popover: 0 0% 100%;
-    --popover-foreground: 225 25% 15%;
+    --popover-foreground: 222.2 84% 4.9%;
 
-    /* Brand colors - Blue to Purple gradient system */
-    --primary: 235 60% 55%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 245 70% 65%;
-    
-    --secondary: 220 15% 95%;
-    --secondary-foreground: 225 25% 25%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
 
-    /* Accent colors */
-    --accent: 280 70% 60%;
-    --accent-foreground: 0 0% 100%;
-    --accent-glow: 290 80% 70%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
 
-    /* Muted tones */
-    --muted: 220 15% 96%;
-    --muted-foreground: 225 15% 55%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    /* Destructive */
-    --destructive: 0 70% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
 
-    /* Borders and inputs */
-    --border: 220 20% 90%;
-    --input: 220 20% 95%;
-    --ring: 235 60% 55%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
 
-    /* Hero gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(235 60% 55%) 0%, hsl(280 70% 60%) 100%);
-    --gradient-hero-light: linear-gradient(135deg, hsl(235 60% 65%) 0%, hsl(280 70% 70%) 100%);
-    
-    /* Card gradients */
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(220 15% 98%) 100%);
-    --gradient-border: linear-gradient(145deg, hsl(235 60% 55%) 0%, hsl(280 70% 60%) 100%);
-    
-    /* Glows and effects */
-    --glow-primary: 0 10px 40px hsl(235 60% 55% / 0.3);
-    --glow-accent: 0 10px 40px hsl(280 70% 60% / 0.3);
-    --shadow-elegant: 0 4px 20px hsl(225 25% 15% / 0.1);
-    --shadow-card: 0 2px 12px hsl(225 25% 15% / 0.08);
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
 
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -126,77 +100,6 @@
   }
 
   body {
-    @apply bg-background text-foreground font-inter;
-  }
-}
-
-@layer components {
-  /* Hero button variants */
-  .btn-hero {
-    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold px-8 py-4 rounded-xl;
-    @apply hover:shadow-xl hover:scale-105 transition-all duration-300;
-    box-shadow: var(--glow-primary);
-  }
-
-  .btn-hero-secondary {
-    @apply bg-background/20 text-primary-foreground border border-white/20 backdrop-blur-sm;
-    @apply hover:bg-white/30 hover:scale-105 transition-all duration-300;
-  }
-
-  /* Card components */
-  .card-gradient {
-    background: var(--gradient-card);
-    box-shadow: var(--shadow-card);
-    @apply backdrop-blur-sm border border-white/50;
-  }
-
-  .card-hover {
-    @apply hover:shadow-xl hover:-translate-y-1 transition-all duration-300;
-  }
-
-  /* Gradient text */
-  .text-gradient {
-    background: var(--gradient-hero);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Hero background */
-  .hero-bg {
-    background: var(--gradient-hero);
-    position: relative;
-  }
-
-  .hero-bg::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 30% 20%, hsl(235 60% 55% / 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 70% 80%, hsl(280 70% 60% / 0.3) 0%, transparent 50%);
-    pointer-events: none;
-  }
-}
-
-@layer utilities {
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .animate-glow {
-    animation: glow 2s ease-in-out infinite alternate;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-  }
-
-  @keyframes glow {
-    from { box-shadow: var(--glow-primary); }
-    to { box-shadow: var(--glow-accent); }
+    @apply bg-background text-foreground;
   }
 }
